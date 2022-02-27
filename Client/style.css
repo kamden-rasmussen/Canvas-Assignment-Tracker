@@ -1,0 +1,135 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+button {
+    margin-top: 5px;
+    padding: 5px;
+}
+
+body {
+    background-color: #6b695e;
+    color: rgb(213, 51, 30);
+
+    font-family: "B612", sans-serif;
+    display: grid;
+    grid-auto-rows: minmax(0px, auto);
+    grid-template-columns: minmax(0px, 1fr) repeat(6, minmax(0, 175px)) minmax(
+            0px,
+            1fr
+        );
+}
+
+header {
+    background-image: url("media/headerphoto.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    background-position: center;
+    grid-row: 3 / 4;
+    grid-column: 2 / -2;
+    border-bottom: 100px;
+    border-color: black;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 10px;
+    text-align: center;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+main {
+    padding: 25px 2em 50px;
+    display: block;
+    background-color: #b8b398;
+    grid-row: 4 / 5;
+    grid-column: 2 / -2;
+}
+
+#buttonSection {
+    padding-right: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    text-align: right;
+    align-items: flex-end;
+}
+
+#new-assignment-button {
+    grid-column: 7 / 8;
+    float: right;
+}
+
+#newAssignmentSet {
+    align-items: center;
+}
+
+.assignments {
+    transition: 0.25s;
+    margin: 10px;
+    padding: 15px 1em 15px;
+    background-color: lightgray;
+    text-decoration: none;
+    border: 2px solid rgb(213, 51, 30);
+    border-radius: 10px;
+    border-left: 12px solid;
+}
+
+/* h2:hover + .details {
+    display: block;
+} */
+
+.details {
+    height: 0;
+    transition: 0.25s ease;
+    overflow: hidden;
+}
+
+.assignments:hover .details {
+    transition: 0.15s;
+    height: 90px;
+    overflow: visible;
+    /* border-left: 20px rgb(213, 51, 30);
+    border-style: solid;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right: 0px; */
+}
+
+.headerButton {
+    font-family: "B612", sans-serif;
+    background-color: red;
+    border: 0px;
+    border-color: whitesmoke;
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.myDIV {
+    background-color: limegreen;
+}
+
+.hide {
+    visibility: hidden;
+    transition: visibility 0s, linear;
+}
+
+.myDIV:hover + .hide {
+    background-color: limegreen;
+    transform: ease-in-out;
+    transform: 5s;
+    display: block;
+    color: red;
+    visibility: visible;
+}
