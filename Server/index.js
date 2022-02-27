@@ -62,34 +62,38 @@ app.get("/hello", (req, res) => {
 
 app.post("/assignments", (req, res) => {
     console.log("raw request body: ", req.body);
-    var assignment = new assignmentDB({
-        name: req.body.name,
-        class: req.body.class,
-        duedate: req.body.duedate,
-        priority: req.body.priority,
-        notes: req.body.notes,
-    });
-    assignment
-        .save()
-        .then((response) => {
-            console.log("Noice ", response);
-            // res.set("Access-Control-Allow-credentials", "true");
-            res.status(201).send("Created");
-        })
-        .catch((error) => {
-            if (error.errors) {
-                for (let e in error.errors) {
-                    let errorMessage = error.errors[e].message;
-                }
-                res.status(422).send("Server Error");
-            } else {
-                console.error(
-                    "Error occured while creating an assignment: ",
-                    error
-                );
-                res.status(500).send("Server Error");
-            }
+    if (req.body.name && req.body.class) {
+        var assignment = new assignmentDB({
+            name: req.body.name,
+            class: req.body.class,
+            duedate: req.body.duedate,
+            priority: req.body.priority,
+            notes: req.body.notes,
         });
+        assignment
+            .save()
+            .then((response) => {
+                console.log("Noice ", response);
+                // res.set("Access-Control-Allow-credentials", "true");
+                res.status(201).send("Created");
+            })
+            .catch((error) => {
+                if (error.errors) {
+                    for (let e in error.errors) {
+                        let errorMessage = error.errors[e].message;
+                    }
+                    res.status(422).send("Server Error");
+                } else {
+                    console.error(
+                        "Error occured while creating an assignment: ",
+                        error
+                    );
+                    res.status(500).send("Server Error");
+                }
+            });
+    } else {
+        res.status(422).send["Missing Required Data"];
+    }
 });
 
 app.put("/assignments/:id", (req, res) => {
