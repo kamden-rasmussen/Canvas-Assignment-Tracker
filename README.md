@@ -1,6 +1,4 @@
-# Canvas Assignment Tracker List
-
-## Resource
+# Canvas Assignment Tracker
 
 **Assignment Tracker for Canvas Assignments**
 

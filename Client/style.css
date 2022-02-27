@@ -4,8 +4,26 @@
 }
 
 button {
-    margin-top: 5px;
-    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: lightgray;
+
+    /* background-color: rgb(213, 51, 30); */
+    border: 1.5px solid rgb(213, 51, 30);
+    color: black;
+    transition: 0.35s;
+}
+
+button:hover {
+    transition: 0.35s;
+    /* background-color: #3f3f3f; */
+    background-color: rgb(213, 51, 30);
+
+    color: whitesmoke;
+    /* border: 1px solid whitesmoke; */
 }
 
 body {
@@ -96,7 +114,7 @@ main {
 
 .assignments:hover .details {
     transition: 0.15s;
-    height: 90px;
+    height: 100px;
     overflow: visible;
     /* border-left: 20px rgb(213, 51, 30);
     border-style: solid;
