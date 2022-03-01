@@ -84,11 +84,6 @@ main {
 
 #new-assignment-button {
     grid-column: 7 / 8;
-    float: right;
-}
-
-#newAssignmentSet {
-    align-items: center;
 }
 
 .assignments {
@@ -102,16 +97,6 @@ main {
     border-left: 12px solid;
 }
 
-/* h2:hover + .details {
-    display: block;
-} */
-
-.details {
-    height: 0;
-    transition: 0.25s ease;
-    overflow: hidden;
-}
-
 .assignments:hover .details {
     transition: 0.15s;
     height: 100px;
@@ -121,35 +106,6 @@ main {
     border-top: 0px;
     border-bottom: 0px;
     border-right: 0px; */
-}
-
-.headerButton {
-    font-family: "B612", sans-serif;
-    background-color: red;
-    border: 0px;
-    border-color: whitesmoke;
-    color: whitesmoke;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-.myDIV {
-    background-color: limegreen;
-}
-
-.hide {
-    visibility: hidden;
-    transition: visibility 0s, linear;
-}
-
-.myDIV:hover + .hide {
-    background-color: limegreen;
-    transform: ease-in-out;
-    transform: 5s;
-    display: block;
-    color: red;
-    visibility: visible;
 }
 
 .backgroundOfModal {
@@ -164,6 +120,28 @@ main {
     align-items: center;
 }
 
+.details {
+    height: 0;
+    transition: 0.25s ease;
+    overflow: hidden;
+}
+
+.headerButton {
+    font-family: "B612", sans-serif;
+    background-color: red;
+    border: 0px;
+    border-color: whitesmoke;
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.hide {
+    visibility: hidden;
+    transition: visibility 0s, linear;
+}
+
 .modal {
     background-color: lightgray;
     border: 2px solid rgb(213, 51, 30);
@@ -172,6 +150,19 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    text-align: left;
     padding: 30px 30px;
+}
+
+.myDIV {
+    background-color: limegreen;
+}
+
+.myDIV:hover + .hide {
+    background-color: limegreen;
+    transform: ease-in-out;
+    transform: 5s;
+    display: block;
+    color: red;
+    visibility: visible;
 }
