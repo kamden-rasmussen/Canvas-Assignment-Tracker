@@ -119,7 +119,10 @@
                             <button v-on:click="viewEditAssignment(assignment)">
                                 Edit
                             </button>
-                            <button v-on:click="completeAssignment(assignment)">
+                            <button
+                                class="completeButton"
+                                v-on:click="completeAssignment(assignment)"
+                            >
                                 Complete
                             </button>
                         </div>

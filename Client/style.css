@@ -120,6 +120,11 @@ main {
     align-items: center;
 }
 
+.completeButton:hover {
+    background-color: green;
+    border-color: green;
+}
+
 .details {
     height: 0;
     transition: 0.25s ease;

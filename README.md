@@ -2,6 +2,10 @@
 
 **Assignment Tracker for Canvas Assignments**
 
+## Resource
+
+This application is meant as an assistant to help keep track of assignments, due dates, priority, and any notes a student may have for an assignment. In the future, the app will automatically integrate with Canva's API and perhaps scrub cit.dixie.edu to grab data from those sites. This will remove the need for consistent manual input of assignments.
+
 Attributes:
 
 -   Name (string)
