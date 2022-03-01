@@ -63,8 +63,8 @@ var app = new Vue({
                     this.newAssignmentNotes = "";
                 }
             });
-            this.fetchAllAssignments();
-            this.showNewAssignment = false;
+            // this.fetchAllAssignments();
+            this.disableAddAssignmentView();
         },
 
         fetchAllAssignments: function () {
@@ -79,6 +79,11 @@ var app = new Vue({
         addAssignment: function () {
             this.showNewAssignment = true;
             console.log("New Assignment Button Clicked");
+        },
+
+        disableAddAssignmentView: function () {
+            this.showNewAssignment = false;
+            this.fetchAllAssignments();
         },
 
         editAssignment: function () {
