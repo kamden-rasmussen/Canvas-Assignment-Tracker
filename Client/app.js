@@ -63,7 +63,7 @@ var app = new Vue({
                     this.newAssignmentNotes = "";
                 }
             });
-            // this.fetchAllAssignments();
+            this.fetchAllAssignments();
             this.disableAddAssignmentView();
         },
 
@@ -145,6 +145,7 @@ var app = new Vue({
                     );
                 }
             });
+            this.fetchAllAssignments();
             this.showEditAssignment = false;
         },
 
