@@ -68,7 +68,23 @@ var app = new Vue({
         },
 
         fetchAllAssignments: function () {
-            fetch("http://localhost:3000/assignments").then((response) => {
+            var sortParam = "";
+
+            if (this.showByDateInput) {
+            } else if (this.showByDueDate) {
+                sortParam = "duedate";
+            } else if (this.showByClass) {
+                sortParam = "class";
+            } else if (this.showByPriority) {
+                sortParam = "priority";
+            }
+
+            console.log("Sort param" + sortParam);
+
+            fetch(
+                "http://localhost:3000/assignments?sortBy=" +
+                    encodeURIComponent(sortParam)
+            ).then((response) => {
                 response.json().then((data) => {
                     console.log("data from the server:", data);
                     this.assignments = data;
@@ -161,38 +177,38 @@ var app = new Vue({
 
         viewByInputDateTrue: function () {
             console.log("sort by input date");
-            showByDateInput = true;
-            showByDueDate = false;
-            showByClass = false;
-            showByPriority = false;
+            this.showByDateInput = true;
+            this.showByDueDate = false;
+            this.showByClass = false;
+            this.showByPriority = false;
+            this.fetchAllAssignments();
         },
 
         viewByDueDateTrue: function () {
             console.log("sort by due date");
-            showByDateInput = false;
-            showByDueDate = true;
-            showByClass = false;
-            showByPriority = false;
-
-            this.assignmentsByDueDate = this.assignments.sort(
-                (a, b) => b.duedate - a.duedate
-            );
+            this.showByDateInput = false;
+            this.showByDueDate = true;
+            this.showByClass = false;
+            this.showByPriority = false;
+            this.fetchAllAssignments();
         },
 
         viewByPriorityTrue: function () {
             console.log("sort by priority");
-            showByDateInput = false;
-            showByDueDate = false;
-            showByClass = false;
-            showByPriority = true;
+            this.showByDateInput = false;
+            this.showByDueDate = false;
+            this.showByClass = false;
+            this.showByPriority = true;
+            this.fetchAllAssignments();
         },
 
         viewByClassTrue: function () {
             console.log("sort by class");
-            showByDateInput = false;
-            showByDueDate = false;
-            showByClass = true;
-            showByPriority = false;
+            this.showByDateInput = false;
+            this.showByDueDate = false;
+            this.showByClass = true;
+            this.showByPriority = false;
+            this.fetchAllAssignments();
         },
     },
 

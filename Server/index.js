@@ -51,9 +51,20 @@ var zzzassignments = [
 ];
 
 app.get("/assignments", (req, res) => {
-    assignmentDB.find().then((assignments) => {
-        res.json(assignments);
-    });
+    // var sort = {};
+
+    // if (req.query.sortBy == "") {
+    //     sort.
+    // }
+
+    console.log("Req.query.sortBy: " + req.query.sortBy);
+
+    assignmentDB
+        .find()
+        .sort(req.query.sortBy)
+        .then((assignments) => {
+            res.json(assignments);
+        });
 });
 
 app.get("/hello", (req, res) => {
@@ -122,5 +133,5 @@ app.delete("/assignments/:id", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Assignment Express app is running`);
+    console.log(`Assignment Express app is running. Listening on `, port);
 });
