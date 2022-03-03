@@ -11,23 +11,21 @@ button {
     border-radius: 5px;
     background-color: lightgray;
 
-    /* background-color: rgb(213, 51, 30); */
-    border: 1.5px solid rgb(213, 51, 30);
+    border: none;
+    /* border: 1.5px solid rgb(213, 51, 30); */
     color: black;
     transition: 0.35s;
 }
 
 button:hover {
     transition: 0.35s;
-    /* background-color: #3f3f3f; */
     background-color: rgb(213, 51, 30);
 
     color: whitesmoke;
-    /* border: 1px solid whitesmoke; */
 }
 
 body {
-    background-color: #6b695e;
+    background-color: #424242;
     color: rgb(213, 51, 30);
 
     font-family: "B612", sans-serif;
@@ -47,8 +45,7 @@ header {
     background-position: center;
     grid-row: 3 / 4;
     grid-column: 2 / -2;
-    border-bottom: 100px;
-    border-color: black;
+    border-bottom: 10px solid #424242;
 }
 
 hr {
@@ -68,7 +65,7 @@ input {
 main {
     padding: 25px 2em 50px;
     display: block;
-    background-color: #b8b398;
+    background-color: #a9acb0;
     grid-row: 4 / 5;
     grid-column: 2 / -2;
 }
@@ -87,27 +84,27 @@ main {
 }
 
 .assignments {
-    transition: height 0.25s display 1.35s;
+    transition: 0.5s;
     margin: 10px;
     padding: 15px 1em 15px;
     background-color: lightgray;
     text-decoration: none;
-    border: 2px solid rgb(213, 51, 30);
+    border: 2px solid black;
     border-radius: 10px;
-    border-left: 12px solid;
+    border-left: 12px solid black;
 }
 
 .assignments:hover .details {
     transition: 0.15s;
-    /* transition: 1.35s; */
 
     height: 100px;
     overflow: visible;
-    /* border-left: 20px rgb(213, 51, 30);
-    border-style: solid;
-    border-top: 0px;
-    border-bottom: 0px;
-    border-right: 0px; */
+}
+
+.assignments:hover {
+    transition: 0.25s ease-in-out;
+    background-color: #fafafa;
+    border-color: rgb(213, 51, 30);
 }
 
 .backgroundOfModal {
@@ -150,7 +147,7 @@ main {
 }
 
 .modal {
-    background-color: lightgray;
+    background-color: #a9acb0;
     border: 2px solid rgb(213, 51, 30);
     width: auto;
     height: auto;
@@ -159,17 +156,4 @@ main {
     align-items: center;
     text-align: left;
     padding: 30px 30px;
-}
-
-.myDIV {
-    background-color: limegreen;
-}
-
-.myDIV:hover + .hide {
-    background-color: limegreen;
-    transform: ease-in-out;
-    transform: 5s;
-    display: block;
-    color: red;
-    visibility: visible;
 }
