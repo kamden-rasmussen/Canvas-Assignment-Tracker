@@ -3,7 +3,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 const cors = require("cors");
 const model = require("./model");
-const { request, response } = require("express");
 
 const assignmentDB = model.assignmentDB;
 
@@ -12,52 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json({}));
 app.use(cors());
 
-var tempAssignment = {
-    name: "Criminal Intent",
-    class: "Android",
-    duedate: "2022-02-22",
-    priority: "High",
-    notes: "This is done. Need to pass off. I think",
-};
-
-var tempAssignment2 = {
-    name: "Project 2",
-    class: "Android",
-    duedate: "2022-03-09",
-    priority: "Moderate",
-    notes: "Keep on trudging, Need a good idea... again",
-};
-
-var tempAssignment3 = {
-    name: "Project 3",
-    class: "Android",
-    duedate: "2022-03-20",
-    priority: "Low",
-    notes: "Not sure what this is going to be. hope it will be fun",
-};
-
-var tempAssignment4 = {
-    name: "Presentation on Building a Call to Action",
-    class: "UX Design",
-    duedate: "2022-02-22",
-    priority: "Critical",
-    notes: "This is almost done. Need to put finishing touches on it",
-};
-
-var zzzassignments = [
-    tempAssignment,
-    tempAssignment2,
-    tempAssignment3,
-    tempAssignment4,
-];
-
 app.get("/assignments", (req, res) => {
-    // var sort = {};
-
-    // if (req.query.sortBy == "") {
-    //     sort.
-    // }
-
     console.log("Req.query.sortBy: " + req.query.sortBy);
 
     assignmentDB
@@ -86,7 +40,6 @@ app.post("/assignments", (req, res) => {
             .save()
             .then((response) => {
                 console.log("Noice ", response);
-                // res.set("Access-Control-Allow-credentials", "true");
                 res.status(201).send("Created");
             })
             .catch((error) => {
