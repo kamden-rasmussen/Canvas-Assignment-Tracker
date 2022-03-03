@@ -1,7 +1,7 @@
 // const { response } = require("express");
 
-var fetchURL = "http://localhost:3000/assignments"; //local
-// var fetchURL = "http://localhost:3000/assignments"; //local
+//var fetchURL = "http://localhost:3000/assignments"; //local
+var fetchURL = "https://canvasassignmenttracker.herokuapp.com/assignments"; //local
 
 var app = new Vue({
     el: "#app",
