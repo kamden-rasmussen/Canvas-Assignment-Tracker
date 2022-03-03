@@ -8,7 +8,7 @@ This application is meant as an assistant to help keep track of assignments, due
 
 Wireframe and Storyboard are found [here](https://www.figma.com/file/IcQlt9Kp6sdvphLO274KLA/Assignment-Tracker?node-id=0%3A1).
 
-Heroku URL found [here]().
+Heroku URL found [here](https://canvasassignmenttracker.herokuapp.com).
 
 Attributes:
 
