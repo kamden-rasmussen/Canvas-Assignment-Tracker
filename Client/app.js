@@ -1,5 +1,8 @@
 // const { response } = require("express");
 
+var fetchURL = "http://localhost:3000/assignments"; //local
+// var fetchURL = "http://localhost:3000/assignments"; //local
+
 var app = new Vue({
     el: "#app",
     data: {
@@ -47,7 +50,7 @@ var app = new Vue({
                 "&notes=" +
                 encodeURIComponent(assignmentNotes);
 
-            fetch("http://localhost:3000/assignments", {
+            fetch(fetchURL, {
                 method: "POST",
                 body: newAssignment,
 
@@ -81,15 +84,14 @@ var app = new Vue({
 
             console.log("Sort param" + sortParam);
 
-            fetch(
-                "http://localhost:3000/assignments?sortBy=" +
-                    encodeURIComponent(sortParam)
-            ).then((response) => {
-                response.json().then((data) => {
-                    console.log("data from the server:", data);
-                    this.assignments = data;
-                });
-            });
+            fetch(fetchURL + "?sortBy=" + encodeURIComponent(sortParam)).then(
+                (response) => {
+                    response.json().then((data) => {
+                        console.log("data from the server:", data);
+                        this.assignments = data;
+                    });
+                }
+            );
         },
 
         addAssignment: function () {
@@ -119,18 +121,14 @@ var app = new Vue({
 
             console.log("EditAssignmentData = ", editAssignmentData);
 
-            fetch(
-                "http://localhost:3000/assignments/" +
-                    this.editTargetAssignmentID,
-                {
-                    method: "PUT",
-                    body: editAssignmentData,
+            fetch(fetchURL + this.editTargetAssignmentID, {
+                method: "PUT",
+                body: editAssignmentData,
 
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded",
-                    },
-                }
-            ).then((response) => {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+            }).then((response) => {
                 if (response.status == 200) {
                     this.editAssignmentClass = "";
                     this.editAssignmentName = "";
@@ -165,7 +163,7 @@ var app = new Vue({
 
         completeAssignment: function (assignment) {
             console.log("Complete button pushed with this data; ", assignment);
-            fetch("http://localhost:3000/assignments/" + assignment._id, {
+            fetch(fetchURL + assignment._id, {
                 method: "DELETE",
             }).then((response) => {
                 if (response.status == 204) {

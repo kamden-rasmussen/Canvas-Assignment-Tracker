@@ -87,7 +87,7 @@ main {
 }
 
 .assignments {
-    transition: 0.25s;
+    transition: height 0.25s display 1.35s;
     margin: 10px;
     padding: 15px 1em 15px;
     background-color: lightgray;
@@ -99,6 +99,8 @@ main {
 
 .assignments:hover .details {
     transition: 0.15s;
+    /* transition: 1.35s; */
+
     height: 100px;
     overflow: visible;
     /* border-left: 20px rgb(213, 51, 30);
