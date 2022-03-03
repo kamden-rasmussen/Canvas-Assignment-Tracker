@@ -121,7 +121,7 @@ var app = new Vue({
 
             console.log("EditAssignmentData = ", editAssignmentData);
 
-            fetch(fetchURL + this.editTargetAssignmentID, {
+            fetch(fetchURL + "/" + this.editTargetAssignmentID, {
                 method: "PUT",
                 body: editAssignmentData,
 
@@ -163,7 +163,7 @@ var app = new Vue({
 
         completeAssignment: function (assignment) {
             console.log("Complete button pushed with this data; ", assignment);
-            fetch(fetchURL + assignment._id, {
+            fetch(fetchURL + "/" + assignment._id, {
                 method: "DELETE",
             }).then((response) => {
                 if (response.status == 204) {
