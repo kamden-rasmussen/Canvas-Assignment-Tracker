@@ -38,6 +38,7 @@
                             <div class="modal">
                                 <div>
                                     <h2>New Assignment</h2>
+                                    <p>Required fields: Name and Class</p>
                                     <br />
                                     Name:
                                     <input
@@ -134,6 +135,7 @@
                         <div class="modal">
                             <div>
                                 <h2>Edit</h2>
+                                <p>Required fields: Name and Class</p>
                                 <br />
                                 Name:
                                 <input
@@ -170,6 +172,7 @@
                                 <button
                                     type="button"
                                     v-on:click="editAssignment"
+                                    v-if="editAssignmentName && editAssignmentClass"
                                 >
                                     Save changes
                                 </button>
