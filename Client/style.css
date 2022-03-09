@@ -69,6 +69,9 @@ main {
     grid-row: 4 / 5;
     grid-column: 2 / -2;
 }
+p {
+    color: #2d0407;
+}
 
 #buttonSection {
     padding-right: 1vw;
