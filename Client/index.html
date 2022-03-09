@@ -38,7 +38,8 @@
                             <div class="modal">
                                 <div>
                                     <h2>New Assignment</h2>
-                                    <p>Required fields: Name and Class</p>
+                                    <!-- <p>Required fields: Name and Class</p> -->
+                                    <p>{{ errorMessage }}</p>
                                     <br />
                                     Name:
                                     <input
@@ -73,7 +74,6 @@
                                     </button>
                                     <button
                                         id="newAssignmentButton"
-                                        v-if="newAssignmentClass && newAssignmentName"
                                         v-on:click="addAssignmentToDB"
                                     >
                                         Add Assignment
@@ -135,7 +135,8 @@
                         <div class="modal">
                             <div>
                                 <h2>Edit</h2>
-                                <p>Required fields: Name and Class</p>
+                                <!-- <p>Required fields: Name and Class</p> -->
+                                <p>{{ errorMessage }}</p>
                                 <br />
                                 Name:
                                 <input
@@ -172,7 +173,6 @@
                                 <button
                                     type="button"
                                     v-on:click="editAssignment"
-                                    v-if="editAssignmentName && editAssignmentClass"
                                 >
                                     Save changes
                                 </button>

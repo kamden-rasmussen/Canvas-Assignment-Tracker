@@ -29,9 +29,16 @@ var app = new Vue({
         showByPriority: false,
 
         showDetails: false,
+
+        errorMessage: "",
     },
     methods: {
         addAssignmentToDB: function () {
+            if (!this.newAssignmentClass || !this.newAssignmentName) {
+                this.errorMessage = "Required Fields: Name and Class";
+                return;
+            }
+
             var assignmentClass = this.newAssignmentClass;
             var assignmentName = this.newAssignmentName;
             var assignmentDueDate = this.newAssignmentDueDate;
@@ -64,6 +71,7 @@ var app = new Vue({
                     this.newAssignmentDueDate = "";
                     this.newAssignmentPriority = "";
                     this.newAssignmentNotes = "";
+                    this.errorMessage = "";
                 }
             });
             this.fetchAllAssignments();
@@ -105,6 +113,10 @@ var app = new Vue({
         },
 
         editAssignment: function () {
+            if (!this.editAssignmentClass || !this.editAssignmentName) {
+                this.errorMessage = "Required Fields: Name and Class";
+                return;
+            }
             console.log("Edit ", this.editTargetAssignmentID);
 
             var editAssignmentData =
@@ -136,6 +148,7 @@ var app = new Vue({
                     this.editAssignmentPriority = "";
                     this.editAssignmentNotes = "";
                     this.fetchAllAssignments();
+                    this.errorMessage = "";
                 } else {
                     console.error(
                         "Bad delete request: ",
