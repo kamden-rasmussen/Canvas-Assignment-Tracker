@@ -35,7 +35,13 @@ var app = new Vue({
     methods: {
         addAssignmentToDB: function () {
             if (!this.newAssignmentClass || !this.newAssignmentName) {
-                this.errorMessage = "Required Fields: Name and Class";
+                if (this.newAssignmentClass && !this.newAssignmentName) {
+                    this.errorMessage = "Missing Assignment Name";
+                } else if (!this.newAssignmentClass && this.newAssignmentName) {
+                    this.errorMessage = "Missing Assignment Class";
+                } else {
+                    this.errorMessage = "Required Fields: Name and Class";
+                }
                 return;
             }
 
@@ -110,13 +116,29 @@ var app = new Vue({
         disableAddAssignmentView: function () {
             this.showNewAssignment = false;
             this.fetchAllAssignments();
+            this.errorMessage = "";
+        },
+
+        closeEditModal: function () {
+            this.showEditAssignment = false;
+            this.errorMessage = "";
         },
 
         editAssignment: function () {
             if (!this.editAssignmentClass || !this.editAssignmentName) {
-                this.errorMessage = "Required Fields: Name and Class";
+                if (this.editAssignmentClass && !this.editAssignmentName) {
+                    this.errorMessage = "Missing Assignment Name";
+                } else if (
+                    !this.editAssignmentClass &&
+                    this.editAssignmentName
+                ) {
+                    this.errorMessage = "Missing Assignment Class";
+                } else {
+                    this.errorMessage = "Required Fields: Name and Class";
+                }
                 return;
             }
+
             console.log("Edit ", this.editTargetAssignmentID);
 
             var editAssignmentData =
